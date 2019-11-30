@@ -1,0 +1,34 @@
+# Routes
+
+GET        /cars/:licenseId/               controllers.CarController.selectCar( licenseId : String)
+POST       /cars/                        controllers.CarController.addCar()
+
+
+DELETE     /cars/:licenseId/               controllers.CarController.deselectCar( licenseId : String)
+
+
+
+GET        /drivers/:driverId/               controllers.DriverController.getDriver( driverId : String)
+DELETE     /drivers/:driverId/               controllers.DriverController.deleteDriver( driverId : String)
+
+
+POST       /drivers/                        controllers.DriverController.createDriver()
+
+GET        /                                 controllers.HomeController.index()
+
+
+
+# Swagger
+GET        /api-docs.json                    controllers.ApiHelpController.getResources
+GET        /api-docs.json/auth               controllers.ApiHelpController.getResource(path = "/auth")
+GET        /api-server/api-docs.json         controllers.ApiHelpController.getResources
+GET        /api-server/api-docs.json/auth    controllers.ApiHelpController.getResource(path = "/auth")
+GET        /docs                             controllers.HomeController.swagger()
+
+
+
+
+OPTIONS    /*all                             controllers.HomeController.preflight(all)
+# Map static resources from the /public folder to the /assets URL path
+GET        /api-server/assets/*file          controllers.Assets.at(path="/public", file)
+GET        /assets/*file                     controllers.Assets.at(path="/public", file)
