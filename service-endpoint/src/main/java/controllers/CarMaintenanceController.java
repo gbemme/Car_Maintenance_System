@@ -3,6 +3,9 @@
  */
 package controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 
@@ -36,23 +39,34 @@ import play.mvc.Result;
  * @author Nimot Imran
  *
  */
-@Api(value = "Car")
+@Api(value = "Car Maintenance System")
 @Transactional
-public class CarController  extends DriverController {
+public class CarMaintenanceController  extends DriverController {
+	
+	
 	private final Config config;
+	
+	
+	  
 	@Inject
-	public CarController(Config config) {
+	public CarMaintenanceController(Config config) {
 		this.config = config;
 	}
+	
+	
 	
 	@Inject
     FormFactory formFactory;
 
     @Inject
+    CarService carService;
+    
+    @Inject
     MyObjectMapper objectMapper;
 
-    @Inject
-    CarService carService;
+    
+    
+   
 
     @ApiOperation(value = "Select Car", notes = "", httpMethod = "GET")
     @ApiResponses(
@@ -62,19 +76,23 @@ public class CarController  extends DriverController {
     )
     
     public Result selectCar(String licenseId) {
+    	
         try {
         	
+        	  
             return ok(Json.toJson(CarMapper.jpaCarToCarDTO(carService.selectCar(licenseId))));
-        
         
         } catch (ResourceNotFound ex) {
         	
             return notFound(ex.getMessage());
         }
+        
+       
+        
     }
     
     
-	@ApiOperation(value = "Add  Car", notes = "", httpMethod = "POST")
+	@ApiOperation(value = "Add Car", notes = "", httpMethod = "POST")
     @ApiResponses(
             value = {
                 @ApiResponse(code = 200, message = "Done")
@@ -98,7 +116,7 @@ public class CarController  extends DriverController {
 
         }
         JpaCar addCar = carService.addCar(CarMapper.carDTotoJpaCar(bindFromRequest.get()));
-
+//        carService.save(addCar);
         return ok(Json.toJson(CarMapper.jpaCarToCarDTO(addCar)));
     }
 

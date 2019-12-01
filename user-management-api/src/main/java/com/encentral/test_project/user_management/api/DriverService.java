@@ -5,6 +5,8 @@
  */
 package com.encentral.test_project.user_management.api;
 
+import java.util.List;
+
 import com.encentral.test_project.commons.exceptions.ResourceNotFound;
 import com.encentral.test_project.entities.JpaDriver;
 
@@ -17,6 +19,8 @@ public interface DriverService {
     JpaDriver find(String driverId) throws ResourceNotFound;
 
     JpaDriver create(JpaDriver driverDO) ;
+    
+    List <JpaDriver> search(String value) throws ResourceNotFound;
 
     void delete(String driverId) throws ResourceNotFound;
 

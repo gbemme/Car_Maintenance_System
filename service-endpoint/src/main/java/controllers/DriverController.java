@@ -84,6 +84,8 @@ public class DriverController extends Controller {
 
         return ok(Json.toJson(DriverMapper.jpaDriverToDriverDTO(create)));
     }
+    
+    
 
     @ApiOperation(value = "Delete Driver", notes = "", httpMethod = "DELETE")
     @ApiResponses(
@@ -96,6 +98,24 @@ public class DriverController extends Controller {
             driverService.delete(driverId);
             return noContent();
         } catch (ResourceNotFound ex) {
+            return notFound(ex.getMessage());
+        }
+    }
+    
+    @ApiOperation(value = "Search for Driver", notes = "", httpMethod = "GET")
+    @ApiResponses(
+            value = {
+                @ApiResponse(code = 200, message = "Done")
+            }
+    )
+    public Result search(String parameter) {
+        try {
+            driverService.search(parameter);
+           
+             return ok(Json.toJson(DriverMapper.jpaDriverToDriverDTO(driverService.search(parameter))));
+        } 
+        
+        catch (ResourceNotFound ex) {
             return notFound(ex.getMessage());
         }
     }

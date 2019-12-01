@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @Entity
-@Table(name = "car")
+@Table(name = "Car")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "JpaCar.findAll", query = "SELECT c FROM JpaCar c")})
@@ -20,25 +20,31 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class JpaCar implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	@Id
-    @Size(min = 15, max = 20)
+	@Basic(optional = false)
     @Column(name = "license_id")
 	@NotNull(message = "license can not be null!")
     private String licenseId;
 	
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "seat_count")
     @Size(min = 2, max = 25)
-    private int seat_count;
+    private Integer seat_count;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "convertible")
      private boolean convertible;
 
     @Column(nullable = false, name = "engine_type")
     private String engine_type;
 
-    @Column(nullable = false)
-    private int rating;
+    @Column(nullable = false, name = "rating")
+    private Integer rating;
     
     
     
@@ -60,7 +66,7 @@ public class JpaCar implements Serializable {
 
 
 
-	public int getSeat_count() {
+	public Integer getSeat_count() {
 		return seat_count;
 	}
 
@@ -68,7 +74,7 @@ public class JpaCar implements Serializable {
 
 
 
-	public void setSeat_count(int seat_count) {
+	public void setSeat_count(Integer seat_count) {
 		this.seat_count = seat_count;
 	}
 
@@ -108,7 +114,7 @@ public class JpaCar implements Serializable {
 
 
 
-	public int getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
@@ -116,7 +122,7 @@ public class JpaCar implements Serializable {
 
 
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 

@@ -2,7 +2,7 @@ package com.encentral.test_project.commons.models;
 import com.encentral.test_project.entities.JpaCar;
 import com.encentral.test_project.entities.JpaDriver;
 
-public class CarMapper extends JpaDriver {
+public class CarMapper  {
 	
 	
 	
@@ -28,6 +28,10 @@ public class CarMapper extends JpaDriver {
 		 
 	        return jpaCar;
 	    }
+	 
+	 
+	 
+	 
 	 
 	 
 	 

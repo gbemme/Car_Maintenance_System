@@ -6,6 +6,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
       <class>com.encentral.test_project.entities.JpaDriver</class>
       <class>com.encentral.test_project.entities.JpaCar</class>
+      <class>org.postgresql.Driver</class>
     <properties>
       <property name="eclipselink.profiler" value="PerformanceMonitor"/>
       <property name="eclipselink.profiler" value="QueryMonitor"/>

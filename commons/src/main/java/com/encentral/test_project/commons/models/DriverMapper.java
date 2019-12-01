@@ -5,6 +5,9 @@
  */
 package com.encentral.test_project.commons.models;
 
+import java.util.List;
+
+import com.encentral.test_project.entities.JpaCar;
 import com.encentral.test_project.entities.JpaDriver;
 
 /**
@@ -34,4 +37,15 @@ public class DriverMapper {
         jpaDriver.setOnlineStatus(dTO.getOnlineStatus());
         return jpaDriver;
     }
+    
+    
+    public static void driverJpaToJpaCar(JpaCar jpaCar) {
+    	
+    	
+    }
+
+	public static Object jpaDriverToDriverDTO(List<JpaDriver> search) {
+		
+		return search.toString();
+	}
 }

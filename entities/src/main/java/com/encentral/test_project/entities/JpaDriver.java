@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "driver")
+@Table(name = "Driver")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "JpaDriver.findAll", query = "SELECT j FROM JpaDriver j")})

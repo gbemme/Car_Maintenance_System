@@ -1,20 +1,21 @@
 # Routes
 
-GET        /cars/:licenseId/               controllers.CarController.selectCar( licenseId : String)
-POST       /cars/                        controllers.CarController.addCar()
+GET        /cars/:licenseId/                 controllers.CarMaintenanceController.selectCar( licenseId : String)
+POST       /cars/                        	 controllers.CarMaintenanceController.addCar()
 
 
-DELETE     /cars/:licenseId/               controllers.CarController.deselectCar( licenseId : String)
+DELETE     /cars/:licenseId/                 controllers.CarMaintenanceController.deselectCar( licenseId : String)
 
 
 
 GET        /drivers/:driverId/               controllers.DriverController.getDriver( driverId : String)
 DELETE     /drivers/:driverId/               controllers.DriverController.deleteDriver( driverId : String)
+GET		   /drivers/:parameter/			     controllers.DriverController.search( parameter : String)
 
-
-POST       /drivers/                        controllers.DriverController.createDriver()
+POST       /drivers/                         controllers.DriverController.createDriver()
 
 GET        /                                 controllers.HomeController.index()
+
 
 
 
