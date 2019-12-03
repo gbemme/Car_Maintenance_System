@@ -1,9 +1,15 @@
 package com.encentral.test_project.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -15,8 +21,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "Car")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JpaCar.findAll", query = "SELECT c FROM JpaCar c")})
-
+    @NamedQuery(name = "JpaCar.findAll", query = "SELECT j FROM JpaCar j")})
+	
 public class JpaCar implements Serializable {
 
 	
@@ -29,23 +35,28 @@ public class JpaCar implements Serializable {
 	@Id
 	@Basic(optional = false)
     @Column(name = "license_id")
-	@NotNull(message = "license can not be null!")
+	@NotNull
     private String licenseId;
 	
-
+	@NotNull(message = "seatCount can not be null!")
     @Column(nullable = false,name = "seat_count")
-    @Size(min = 2, max = 25)
-    private Integer seat_count;
-
-    @Column(nullable = false, name = "convertible")
-     private boolean convertible;
-
+    
+    private Integer seatCount;
+	
+	@NotNull(message = "Convertible can not be null!")
+    @Column(name = "convertible")
+     private Boolean convertible;
+	
+	@NotNull(message = "Engine type can not be null!")
     @Column(nullable = false, name = "engine_type")
-    private String engine_type;
+    private String engineType;
 
     @Column(nullable = false, name = "rating")
     private Integer rating;
     
+    
+    @Column(name = "selected") 
+    private Boolean selected;
     
     
     
@@ -66,23 +77,23 @@ public class JpaCar implements Serializable {
 
 
 
-	public Integer getSeat_count() {
-		return seat_count;
+	public Integer getSeatCount() {
+		return seatCount;
 	}
 
 
 
 
 
-	public void setSeat_count(Integer seat_count) {
-		this.seat_count = seat_count;
+	public void setSeatCount(Integer seatCount) {
+		this.seatCount = seatCount;
 	}
 
 
 
 
 
-	public boolean isConvertible() {
+	public Boolean isConvertible() {
 		return convertible;
 	}
 
@@ -90,7 +101,7 @@ public class JpaCar implements Serializable {
 
 
 
-	public void setConvertible(boolean convertible) {
+	public void setConvertible(Boolean convertible) {
 		this.convertible = convertible;
 	}
 
@@ -98,16 +109,16 @@ public class JpaCar implements Serializable {
 
 
 
-	public String getEngine_type() {
-		return engine_type;
+	public String getEngineType() {
+		return engineType;
 	}
 
 
 
 
 
-	public void setEngine_type(String engine_type) {
-		this.engine_type = engine_type;
+	public void setEngineType(String engineType) {
+		this.engineType = engineType;
 	}
 
 
@@ -124,6 +135,22 @@ public class JpaCar implements Serializable {
 
 	public void setRating(Integer rating) {
 		this.rating = rating;
+	}
+
+
+
+
+
+	public Boolean getSelected() {
+		return selected;
+	}
+
+
+
+
+
+	public void setSelected(Boolean selected) {
+		this.selected = selected;
 	}
 
 

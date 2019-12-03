@@ -4,6 +4,8 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <non-jta-data-source>DefaultDS</non-jta-data-source>
         <class>com.encentral.test_project.entities.JpaDriver</class>
+        <class>com.encentral.test_project.entities.JpaCar</class>
+        
         
         <properties>
             <property  name="eclipselink.weaving"  value="static" />
@@ -12,7 +14,7 @@
             <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
             <property name="javax.persistence.sql-load-script-source" value="META-INF/load_script.sql"/>
             
-            <shared-cache-mode>NONE</shared-cache-mode>
+            
         </properties>
     </persistence-unit>
     

@@ -3,23 +3,14 @@
  */
 package controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
-
 
 import com.encentral.test_project.commons.exceptions.ResourceNotFound;
 import com.encentral.test_project.commons.models.CarDTO;
 import com.encentral.test_project.commons.models.CarMapper;
-import com.encentral.test_project.commons.models.DriverDTO;
-import com.encentral.test_project.commons.models.DriverMapper;
 import com.encentral.test_project.commons.util.MyObjectMapper;
 import com.encentral.test_project.entities.JpaCar;
-import com.encentral.test_project.entities.JpaDriver;
 import com.encentral.test_project.user_management.api.CarService;
-import com.encentral.test_project.user_management.api.DriverService;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.typesafe.config.Config;
 
 import io.swagger.annotations.Api;
@@ -32,7 +23,6 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.db.jpa.Transactional;
 import play.libs.Json;
-import play.mvc.Controller;
 import play.mvc.Result;
 
 /**
@@ -75,12 +65,12 @@ public class CarMaintenanceController  extends DriverController {
             }
     )
     
-    public Result selectCar(String licenseId) {
+    public Result selectCar(String licenseId, String driverId) {
     	
         try {
         	
         	  
-            return ok(Json.toJson(CarMapper.jpaCarToCarDTO(carService.selectCar(licenseId))));
+            return ok(Json.toJson(CarMapper.jpaCarToCarDTO(carService.selectCar(licenseId,driverId))));
         
         } catch (ResourceNotFound ex) {
         	
@@ -116,7 +106,7 @@ public class CarMaintenanceController  extends DriverController {
 
         }
         JpaCar addCar = carService.addCar(CarMapper.carDTotoJpaCar(bindFromRequest.get()));
-//        carService.save(addCar);
+
         return ok(Json.toJson(CarMapper.jpaCarToCarDTO(addCar)));
     }
 
@@ -127,9 +117,9 @@ public class CarMaintenanceController  extends DriverController {
                 @ApiResponse(code = 200, message = "Done")
             }
     )
-    public Result deselectCar(String licenseId) {
+    public Result deselectCar(String licenseId, String driverId) {
         try {
-            carService.deselectCar(licenseId);
+            carService.deselectCar(licenseId, driverId);
             return noContent();
         } catch (ResourceNotFound ex) {
             return notFound(ex.getMessage());

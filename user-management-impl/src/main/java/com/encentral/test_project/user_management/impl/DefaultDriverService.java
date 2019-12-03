@@ -28,6 +28,7 @@ public class DefaultDriverService implements DriverService {
     
     @Inject
     DriverDTO driverDTO;
+    
     @Inject
     JpaDriver jpaDriver;
     

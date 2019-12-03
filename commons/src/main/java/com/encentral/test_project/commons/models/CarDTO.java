@@ -2,7 +2,6 @@
  * 
  */
 package com.encentral.test_project.commons.models;
-
 /**
  * @author Nimot Imran
  *
@@ -10,32 +9,35 @@ package com.encentral.test_project.commons.models;
 
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CarDTO {
 	
-	
+	@NotNull(message = "license can not be null!")
 	private String licenseId;
 
-    @NotNull(message = "license can not be null!")
-   
-    private Integer  seat_count;
-    @NotNull(message = "seat count can not be null!")
-    @Size(min = 2)
     
-    private boolean convertible;
+    @NotNull(message = "seat count can not be null!")
+    
+    private Integer  seatCount;
+    
     @NotNull(message = "convertible can not be null!")
 
+    private Boolean convertible;
     
-    private String engine_type;
-    @NotNull(message = "egine type can not be null!")
+    @NotNull(message = "egine type can not be null!") 
+    private String engineType;
     
-    private Integer rating;
+    
     @NotNull(message = "rating can not be null!")
 
+    private Integer rating;
+    
+   
+    
+    private Boolean selected;
 
 	public String getLicenseId() {
 		return licenseId;
@@ -47,33 +49,33 @@ public class CarDTO {
 	}
 
 
-	public Integer getSeat_count() {
-		return seat_count;
+	public Integer getSeatCount() {
+		return seatCount;
 	}
 
 
-	public void setSeat_count(Integer seat_count) {
-		this.seat_count = seat_count;
+	public void setSeatCount(Integer seatCount) {
+		this.seatCount = seatCount;
 	}
 
 
-	public boolean isConvertible() {
+	public Boolean isConvertible() {
 		return convertible;
 	}
 
 
-	public void setConvertible(boolean convertible) {
+	public void setConvertible(Boolean convertible) {
 		this.convertible = convertible;
 	}
 
 
-	public String getEngine_type() {
-		return engine_type;
+	public String getEngineType() {
+		return engineType;
 	}
 
 
-	public void setEngine_type(String engine_type) {
-		this.engine_type = engine_type;
+	public void setEngineType(String engineType) {
+		this.engineType = engineType;
 	}
 
 
@@ -84,6 +86,16 @@ public class CarDTO {
 
 	public void setRating(Integer rating) {
 		this.rating = rating;
+	}
+
+
+	public Boolean getSelected() {
+		return selected;
+	}
+
+
+	public void setSelected(Boolean selected) {
+		this.selected = selected;
 	}
     
 

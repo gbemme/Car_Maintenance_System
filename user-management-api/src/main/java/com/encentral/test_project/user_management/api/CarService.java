@@ -15,16 +15,12 @@ import com.encentral.test_project.entities.JpaCar;
  *
  */
 public interface CarService  {
-	JpaCar selectCar(String licenseId) throws ResourceNotFound;
+	JpaCar selectCar(String licenseId,String driverId) throws ResourceNotFound;
 
     JpaCar addCar(JpaCar carDO) ;
 
-    void deselectCar(String licenseId) throws ResourceNotFound;
+    void deselectCar(String licenseId,String driverId) throws ResourceNotFound;
     
-//    public List<JpaCar> search(String filter);
-//    
-//    public void update(JpaCar carDo);
-    
-//    JpaCar save(JpaCar carDO);
+
 
 }

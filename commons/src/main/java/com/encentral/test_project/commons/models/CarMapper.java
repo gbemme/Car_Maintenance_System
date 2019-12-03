@@ -10,9 +10,9 @@ public class CarMapper  {
         CarDTO dTO = new CarDTO();
         
         dTO.setLicenseId(jpaCar.getLicenseId());
-        dTO.setSeat_count(jpaCar.getSeat_count());
-        dTO.setConvertible(jpaCar.isConvertible());
-        dTO.setEngine_type(jpaCar.getEngine_type());
+        dTO.setSeatCount(jpaCar.getSeatCount());
+        //dTO.setConvertible(jpaCar.isConvertible());
+        dTO.setEngineType(jpaCar.getEngineType());
         dTO.setRating(jpaCar.getRating());
         return dTO;
     }
@@ -21,9 +21,9 @@ public class CarMapper  {
 	 public static JpaCar carDTotoJpaCar(CarDTO dTO) {
 		 JpaCar jpaCar = new JpaCar();
 		 jpaCar.setLicenseId(dTO.getLicenseId());
-		 jpaCar.setSeat_count(dTO.getSeat_count());
-		 jpaCar.setConvertible(dTO.isConvertible());
-		 jpaCar.setEngine_type(dTO.getEngine_type());
+		 jpaCar.setSeatCount(dTO.getSeatCount());
+		 //jpaCar.setConvertible(dTO.isConvertible());
+		 jpaCar.setEngineType(dTO.getEngineType());
 		 jpaCar.setRating(dTO.getRating());
 		 
 	        return jpaCar;

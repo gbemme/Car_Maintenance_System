@@ -24,6 +24,7 @@ public class Module extends AbstractModule {
     	bind (CarService.class).to(DefaultCarService.class);
         bind(DriverService.class).to(DefaultDriverService.class);
         bind(MyObjectMapper.class).toInstance(new MyObjectMapper());
+        
 
     }
 

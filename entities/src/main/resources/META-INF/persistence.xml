@@ -7,6 +7,7 @@
       <class>com.encentral.test_project.entities.JpaDriver</class>
       <class>com.encentral.test_project.entities.JpaCar</class>
       <class>org.postgresql.Driver</class>
+      <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="eclipselink.profiler" value="PerformanceMonitor"/>
       <property name="eclipselink.profiler" value="QueryMonitor"/>
@@ -14,4 +15,5 @@
       <property name="eclipselink.weaving" value="static"/>
     </properties>
   </persistence-unit>
+  
 </persistence>

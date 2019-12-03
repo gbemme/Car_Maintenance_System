@@ -6,6 +6,7 @@
 package com.encentral.test_project.entities;
 
 import java.io.Serializable;
+
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -24,7 +25,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "Driver")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JpaDriver.findAll", query = "SELECT j FROM JpaDriver j")})
+    @NamedQuery(name = "JpaDriver.findAll", query = "SELECT j FROM JpaDriver j"),
+    })
 public class JpaDriver implements Serializable {
 
     @Id
